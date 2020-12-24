@@ -1,0 +1,26 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /auth # 应用名 localhost:8090/auth
+
+
+spring:
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/security-oauth2?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    #mysql8版本以上驱动包指定新的驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #   数据源其他配置, 在 DruidConfig配置类中手动绑定
+    initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 5000
